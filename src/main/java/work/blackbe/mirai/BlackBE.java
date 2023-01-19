@@ -11,7 +11,7 @@ public final class BlackBE extends JavaPlugin {
     public static final BlackBE INSTANCE = new BlackBE();
 
     private BlackBE() {
-        super(new JvmPluginDescriptionBuilder("work.blackbe.mirai", "3.0.0")
+        super(new JvmPluginDescriptionBuilder("work.blackbe.mirai", "3.1.0")
                 .name("BlackBE")
                 .author("McPlus")
                 .build());
