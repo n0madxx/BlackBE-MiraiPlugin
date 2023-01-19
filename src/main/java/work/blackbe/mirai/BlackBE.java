@@ -13,7 +13,7 @@ public final class BlackBE extends JavaPlugin {
     private BlackBE() {
         super(new JvmPluginDescriptionBuilder("work.blackbe.mirai", "3.1.0")
                 .name("BlackBE")
-                .author("McPlus")
+                .author("n0mad")
                 .build());
     }
 
