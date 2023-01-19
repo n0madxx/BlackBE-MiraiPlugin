@@ -1,0 +1,23 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.7.10'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.7.10'
+
+    id 'net.mamoe.mirai-console' version '2.13.2'
+}
+
+group = 'work.blackbe.mirai'
+version = '3.0.0'
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public' }
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation 'com.google.code.gson:gson:2.10'
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-text
+    implementation 'org.apache.commons:commons-text:1.10.0'
+
+}
