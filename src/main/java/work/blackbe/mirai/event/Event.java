@@ -18,7 +18,7 @@ public class Event {
     public static Map<Long, Response> qqTemp = new HashMap<>();
 
     public static void subscribeEvent() {
-        GroupMessage.addHandle(event -> {
+        Message.addHandle(event -> {
             String message = event.getMessage().contentToString();
 
             Pattern pattern = Pattern.compile(Config.INSTANCE.getExpression());
@@ -44,14 +44,14 @@ public class Event {
                     Gson gson = new Gson();
                     Response response = gson.fromJson(result, Response.class);
 
-                    response.handle(event, GroupMessage.MessageType.CHECK, target);
+                    response.handle(event, Message.MessageType.CHECK, target);
                 } catch (Exception e) {
                     BlackBE.INSTANCE.getLogger().error(e);
                 }
             }
         });
 
-        GroupMessage.addHandle(event -> {
+        Message.addHandle(event -> {
             Long qq = event.getSender().getId();
             if (!qqTemp.containsKey(qq)) {
                 String param = String.format("qq=%s", qq);
@@ -69,15 +69,17 @@ public class Event {
                     Gson gson = new Gson();
                     Response response = gson.fromJson(result, Response.class);
 
-                    response.handle(event, GroupMessage.MessageType.CHAT, event.getSenderName());
+                    response.handle(event, Message.MessageType.CHAT, event.getSenderName());
                 } catch (Exception e) {
                     BlackBE.INSTANCE.getLogger().error(e);
                 }
             } else {
-                qqTemp.get(qq).handle(event, GroupMessage.MessageType.CHAT, event.getSenderName());
+                qqTemp.get(qq).handle(event, Message.MessageType.CHAT, event.getSenderName());
             }
         });
 
-        GroupMessage.subscribe();
+        Message.subscribe();
+
+
     }
 }
